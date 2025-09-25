@@ -1,254 +1,602 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lotérica Mel — Serviços</title>
-  <meta name="description" content="Lotérica Mel — Pagamento de contas, Apostas da Caixa e Serviços do Bolsa Família. Atendimento rápido e próximo a você." />
-  <style>
-    :root{
-      --bg:#0a192f;
-      --card:#102a43;
-      --accent:#ff8a3c;
-      --muted:#b3c5d7;
-      --glass: rgba(255,255,255,0.05);
-      --radius:16px;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; background:linear-gradient(180deg,#0a192f 0%, #1e3a5f 100%); color:#f0f6fc; -webkit-font-smoothing:antialiased;
-      display:flex; align-items:center; justify-content:center; padding:28px;
-    }
-    .container{width:100%; max-width:1100px;}
-
-    .card-hero{
-      background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-      border-radius:24px; padding:28px; box-shadow:0 6px 30px rgba(2,6,23,0.6);
-      backdrop-filter: blur(6px); border:1px solid rgba(255,255,255,0.06);
-    }
-
-    .header{display:flex; gap:16px; align-items:center}
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo{width:64px;height:64px; border-radius:12px; background:linear-gradient(135deg,var(--accent), #ffb347); display:flex;align-items:center;justify-content:center;font-weight:700;color:#06202b}
-    .brand h1{margin:0;font-size:20px}
-    .brand p{margin:0;font-size:13px;color:var(--muted)}
-
-    .hero-body{display:flex;gap:24px;margin-top:20px;align-items:center}
-    .intro{flex:1}
-    .intro h2{margin:0;font-size:28px;line-height:1.05}
-    .intro p{color:var(--muted);margin-top:8px}
-
-    .services{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:18px}
-    .service{background:var(--card);padding:18px;border-radius:14px;min-height:150px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid rgba(255,255,255,0.08)}
-    .service h3{margin:0;font-size:18px;color:#ffb347}
-    .service p{color:var(--muted);margin:8px 0 12px}
-    .service .actions{display:flex;gap:10px}
-    .btn{padding:10px 14px;border-radius:12px;border:0;cursor:pointer;font-weight:600}
-    .btn-primary{background:linear-gradient(90deg,var(--accent),#ffa94d);color:#06202b}
-    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.12);color:var(--muted)}
-
-    .quick{margin-top:18px;display:flex;gap:12px;align-items:center}
-    .chip{background:var(--glass);text-align: center; padding:10px 12px;border-radius:999px;border:1px solid rgba(255,255,255,0.08);font-weight:600;color:#ffa94d}
-
-    .bottom{display:grid;grid-template-columns:1fr 320px;gap:16px;margin-top:18px}
-    .contact{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));padding:16px;border-radius:12px}
-    .contact h4{margin:0 0 10px;color:#ffa94d}
-    .contact p{color:var(--muted);margin:0}
-    .map{background:linear-gradient(180deg,#16324f,#1e4d7d);border-radius:12px;padding:12px;color:var(--muted);display:flex;flex-direction:column;gap:8px}
-
-    footer{margin-top:18px;text-align:center;color:var(--muted);font-size:13px}
-
-    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:20px}
-    .modal.open{display:flex}
-    .modal .dialog{background:#102a43;padding:18px;border-radius:12px;max-width:520px;width:100%;border:1px solid rgba(255,255,255,0.08)}
-    .form-row{display:flex;gap:8px;margin-top:8px}
-    .form-row input, .form-row textarea, .form-row select{flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:transparent;color:inherit}
-
-    @media (max-width:900px){
-      .hero-body{flex-direction:column}
-      .services{grid-template-columns:1fr}
-      .bottom{grid-template-columns:1fr}
-      .logo{width:56px;height:56px}
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="card-hero" role="region" aria-label="Lotérica Mel - Serviços principais">
-      <div class="header">
-        <div class="brand">
-          <div class="logo" aria-hidden="true">
-            <img src="images/cef.png" alt="" style="width:44px;height:44px"/>  
-          </div>
-          <div>
-            <h1>Lotérica Mel</h1>
-            <p>Pagamento de contas • Apostas Caixa • Serviços Bolsa Família • Seguros</p>
-          </div>
-        </div>
-        <div style="margin-left:auto;text-align:right">
-          <div style="font-weight:700">Aberto hoje</div>
-          <div style="color:var(--muted);font-size:13px">Seg — Sáb 08:00 — 18:00</div>
-        </div>
-      </div>
-
-      <div class="hero-body">
-        <div class="intro">
-          <div class="brand">
-            <div class="logo" aria-hidden="true">
-              <img src="images/cef.png" alt="" style="width:44px;height:44px"/>  
-            </div>
-          <div>
-            <h1>Lotérica Mel</h1>
-            <p>Pagamento de contas • Apostas Caixa • Serviços Bolsa Família • Seguros</p>
-          </div>
-        </div>
-          <p>Na Lotérica Mel você paga contas, faz suas apostas na Caixa, Faz seu seguro residencial ou pessoal ou ainda familiar e acessa serviços sociais com atendimento ágil e seguro.</p>
-
-          <div class="quick" aria-hidden="false">
-            <div class="chip">Atendimento Humanizado e Cordial</div>
-            <div class="chip">Pagamento com Pix, Cartão de Débito e Crédito</div>
-            <div class="chip">Seguros, Consórcios, Empréstimo Consignado, Capitalização</div>
-          </div>
-
-          <div class="services" role="list">
-            <!-- Pagamento de contas -->
-            <article class="service" role="listitem" aria-labelledby="pagar-title">
-              <div>
-                <h3 id="pagar-title">Pagamento de Contas</h3>
-                <p>Conta de luz, água, telefone, boletos bancários, GPS, Guias, IPTU entre outros — aceitamos todas as principais bandeiras. Sem filas longas.<br><strong>Novidade!!</strong> <br>Você pode parcelar suas contas em até 06 vezes (apenas a cobrança de taxa de conveniência de 3,05%). <br> Juros cobrado pela bandeira do cartão.</p>
-              </div>              
-            </article>
-
-            <!-- Apostas Caixa -->
-            <article class="service" role="listitem" aria-labelledby="apostas-title">
-              <div>
-                <h3 id="apostas-title">Apostas — Caixa</h3>
-                <p><strong>Mega-Sena</strong>, Lotofácil, <strong>Quina</strong>, Lotomania, <strong>Timemania</strong>, Dupla Sena, <strong>Loteria Federal</strong>, Loteca, <strong>Dia de Sorte</strong>, Super Sete, <strong>+Milionária</strong>. Emita seu bilhete com assistência e segurança e receba orientações sobre jogos e prêmios.<br>Aposte em nossos Bolões!!</p>
-              </div>   
-              <div style="margin-top:24px">
-                <a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="https://www.loteriasonline.caixa.gov.br/silce-web/#/bolao-caixa/017858">Aposte</a>
-              </div>
-            </article>
-
-            <!-- Bolsa Família / Auxílio -->
-            <article class="service" role="listitem" aria-labelledby="bolsa-title">
-              <div>
-                <h3 id="bolsa-title">Serviços Bolsa Família / Auxílio</h3>
-                <p>Consulta de benefícios, emissão de comprovantes e orientações para saque — atendimento humanizado e seguro.</p>
-              </div>              
-            </article>
-
-            <article class="service" role="listitem" aria-labelledby="seguro-title">
-              <div>
-                <h3 id="bolsa-title">Seguros</h3>
-                <p>Seguro Amparo, Seguro Bem Estar, Consórcio de automóveis, caminhões e imóveis. Tudo sem burocracia, venha ver a facilidade de contratar na Lotérica Mel</p>
-              </div>              
-            </article>
-          </div>
-        </div>
-
-        <aside style="width:320px;flex-shrink:0">
-          <div class="map" aria-label="Informações de contato">
-            <strong>Localização</strong>
-            <div>Avenida Eduardo Prado, 1954 — Cavalhada<br/>Porto Alegre — RS</div>
-            <div style="margin-top:8px"><strong>WhatsApp</strong><br/>+55 (51) 9 9395-2676</div>
-            <div style="margin-top:8px;color:var(--muted)">Horário de atendimento: <br>Segunda à Sexta 09:00 as 18:00</div>
-            <div style="margin-top:8px;color:var(--muted)">Horário de atendimento: <br>Sábados 09:00 as 16:00</div>
-            <div style="margin-top:12px">
-              <button class="btn btn-primary" id="btn-whatsapp">Nos chame no WhatsApp!</button>
-            </div>
-          </div>
-        </aside>
-      </div>
-      <footer>
-        © <span id="ano"></span> JM&MD Loterias LTDA — Todos os direitos reservados
-      </footer>
-    </div>
-  </div>
-
-  <!-- Modal template -->
-  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-hidden="true">
-    
-  </div>
-
-  <script>
-    // Fill year
-    document.getElementById('ano').textContent = new Date().getFullYear();
-
-    // Open WhatsApp (placeholder link) — replace with business link
-    document.getElementById('btn-whatsapp').addEventListener('click', ()=>{
-      window.open('https://wa.me/5551993952676?text=Ol%C3%A1!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es.','_blank')
-    })
-
-    // Modal logic
-    const modal = document.getElementById('modal');
-    const modalTitle = document.getElementById('modal-title');
-    const modalDesc = document.getElementById('modal-desc');
-    const serviceInput = document.getElementById('service');
-
-    function openModal(service){
-      modal.classList.add('open');
-      modal.setAttribute('aria-hidden','false');
-      modalTitle.textContent = service;
-      modalDesc.textContent = 'Preencha os dados abaixo para solicitar: ' + service;
-      serviceInput.value = service;
-      document.getElementById('f-name').focus();
-    }
-
-    function closeModal(){
-      modal.classList.remove('open');
-      modal.setAttribute('aria-hidden','true');
-    }
-
-    document.getElementById('close-modal').addEventListener('click', closeModal);
-    document.getElementById('cancel').addEventListener('click', closeModal);
-
-    // Attachors to service buttons
-    document.querySelectorAll('[data-action="open-form"]').forEach(btn=>{
-      btn.addEventListener('click', (e)=>{
-        openModal(btn.dataset.service);
-      })
-    });
-
-    // How buttons show quick alert (could be richer)
-    document.querySelectorAll('[data-action="how"]').forEach(btn=>{
-      btn.addEventListener('click', ()=>{
-        alert(btn.dataset.service + '\n\nAbra uma solicitação ou pergunte no WhatsApp para mais detalhes.');
-      })
-    });
-
-    // Send form — placeholder behavior: just close and show a toast
-    document.getElementById('send').addEventListener('click', ()=>{
-      const name = document.getElementById('f-name').value.trim();
-      const phone = document.getElementById('f-phone').value.trim();
-      if(!name || !phone){
-        alert('Preencha nome e telefone para enviar.');
-        return;
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lotérica Mel — Serviços</title>
+    <meta
+      name="description"
+      content="Lotérica Mel — Pagamento de contas, Apostas da Caixa e Serviços do Bolsa Família. Atendimento rápido e próximo a você."
+    />
+    <style>
+      :root {
+        --bg: #0a192f;
+        --card: #102a43;
+        --accent: #ff8a3c;
+        --muted: #b3c5d7;
+        --glass: rgba(255, 255, 255, 0.05);
+        --radius: 16px;
+        font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial;
       }
-      closeModal();
-      alert('Solicitação enviada! Em breve retornaremos pelo telefone/WhatsApp informado.');
-    });
 
-    // Simple placeholders for map buttons
-    document.getElementById('btn-maps').addEventListener('click', ()=>{
-      window.open('https://www.google.com/maps','_blank');
-    });
-    document.getElementById('btn-directions').addEventListener('click', ()=>{
-      window.open('https://www.google.com/maps/dir//Rua+Eduardo+Prado+1954','_blank');
-    });
+      * {
+        box-sizing: border-box;
+      }
 
-    // Quick request button
-    document.getElementById('btn-request').addEventListener('click', ()=>{
-      const n = document.getElementById('nome').value.trim();
-      const t = document.getElementById('tel').value.trim();
-      if(!n || !t){ alert('Preencha nome e telefone.'); return; }
-      alert('Solicitação recebida. Entraremos em contato por WhatsApp.');
-    });
+      html,
+      body {
+        height: 100%;
+      }
 
-    // Accessibility: close modal with ESC
-    window.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); })
-  </script>
-</body>
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, #0a192f 0%, #1e3a5f 100%);
+        color: #f0f6fc;
+        -webkit-font-smoothing: antialiased;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1100px;
+      }
+
+      .card-hero {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.04),
+          rgba(255, 255, 255, 0.02)
+        );
+        border-radius: 24px;
+        padding: 24px;
+        box-shadow: 0 6px 30px rgba(2, 6, 23, 0.6);
+        backdrop-filter: blur(6px);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .header {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .brand {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+
+      .logo {
+        width: 64px;
+        height: 64px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, var(--accent), #ffb347);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        color: #06202b;
+        flex-shrink: 0;
+      }
+
+      .brand h1 {
+        margin: 0;
+        font-size: 20px;
+      }
+
+      .brand p {
+        margin: 0;
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      .hero-body {
+        display: flex;
+        gap: 24px;
+        margin-top: 20px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .intro {
+        flex: 1;
+        min-width: 260px;
+      }
+
+      .intro h2 {
+        margin: 0;
+        font-size: 28px;
+        line-height: 1.2;
+      }
+
+      .intro p {
+        color: var(--muted);
+        margin-top: 8px;
+        font-size: 15px;
+      }
+
+      .services {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 16px;
+        margin-top: 18px;
+      }
+
+      .service {
+        background: var(--card);
+        padding: 18px;
+        border-radius: 14px;
+        min-height: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .service h3 {
+        margin: 0;
+        font-size: 18px;
+        color: #ffb347;
+      }
+
+      .service p {
+        color: var(--muted);
+        margin: 8px 0 12px;
+        font-size: 14px;
+      }
+
+      .service .actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        padding: 10px 14px;
+        border-radius: 12px;
+        border: 0;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      .btn-primary {
+        background: linear-gradient(90deg, var(--accent), #ffa94d);
+        color: #06202b;
+      }
+
+      .btn-ghost {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: var(--muted);
+      }
+
+      .quick {
+        margin-top: 18px;
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .chip {
+        background: var(--glass);
+        text-align: center;
+        padding: 8px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        font-weight: 600;
+        color: #ffa94d;
+        font-size: 14px;
+      }
+
+      .bottom {
+        display: grid;
+        grid-template-columns: 1fr 320px;
+        gap: 16px;
+        margin-top: 18px;
+      }
+
+      .contact {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          rgba(255, 255, 255, 0)
+        );
+        padding: 16px;
+        border-radius: 12px;
+      }
+
+      .contact h4 {
+        margin: 0 0 10px;
+        color: #ffa94d;
+      }
+
+      .contact p {
+        color: var(--muted);
+        margin: 0;
+      }
+
+      .map {
+        background: linear-gradient(180deg, #16324f, #1e4d7d);
+        border-radius: 12px;
+        padding: 12px;
+        color: var(--muted);
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        font-size: 14px;
+      }
+
+      footer {
+        margin-top: 18px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .modal {
+        position: fixed;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .modal.open {
+        display: flex;
+      }
+
+      .modal .dialog {
+        background: #102a43;
+        padding: 18px;
+        border-radius: 12px;
+        max-width: 520px;
+        width: 100%;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .form-row {
+        display: flex;
+        gap: 8px;
+        margin-top: 8px;
+        flex-wrap: wrap;
+      }
+
+      .form-row input,
+      .form-row textarea,
+      .form-row select {
+        flex: 1;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: transparent;
+        color: inherit;
+        min-width: 140px;
+      }
+
+      /* === BREAKPOINTS === */
+      @media (max-width: 900px) {
+        .hero-body {
+          flex-direction: column;
+          text-align: center;
+        }
+        .intro h2 {
+          font-size: 24px;
+        }
+        .bottom {
+          grid-template-columns: 1fr;
+        }
+        .logo {
+          width: 56px;
+          height: 56px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        body {
+          padding: 14px;
+        }
+        .card-hero {
+          padding: 16px;
+        }
+        .intro h2 {
+          font-size: 20px;
+        }
+        .intro p {
+          font-size: 13px;
+        }
+        .service h3 {
+          font-size: 16px;
+        }
+        .service p {
+          font-size: 13px;
+        }
+        .btn {
+          font-size: 13px;
+          padding: 8px 12px;
+        }
+        .chip {
+          font-size: 13px;
+          padding: 6px 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div
+        class="card-hero"
+        role="region"
+        aria-label="Lotérica Mel - Serviços principais"
+      >
+        <div class="header">
+          <div style="margin-left: auto; text-align: right">
+            <div style="font-weight: 700">Aberto hoje</div>
+            <div style="color: var(--muted); font-size: 13px">
+              Seg — Sáb 08:00 — 18:00
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-body">
+          <div class="intro">
+            <div class="brand">
+              <div class="logo" aria-hidden="true">
+                <img
+                  src="images/cef.png"
+                  alt=""
+                  style="width: 44px; height: 44px"
+                />
+              </div>
+              <div>
+                <h1>Lotérica Mel</h1>
+                <p>
+                  Pagamento de contas • Apostas Caixa • Serviços Bolsa Família •
+                  Seguros
+                </p>
+              </div>
+            </div>
+            <p>
+              Na Lotérica Mel você paga contas, faz suas apostas na Caixa, Faz
+              seu seguro residencial ou pessoal ou ainda familiar e acessa
+              serviços sociais com atendimento ágil e seguro.
+            </p>
+
+            <div class="quick" aria-hidden="false">
+              <div class="chip">Atendimento Humanizado e Cordial</div>
+              <div class="chip">
+                Pagamento com Pix, Cartão de Débito e Crédito
+              </div>
+              <div class="chip">
+                Seguros, Consórcios, Empréstimo Consignado, Capitalização
+              </div>
+            </div>
+
+            <div class="services" role="list">
+              <!-- Pagamento de contas -->
+              <article
+                class="service"
+                role="listitem"
+                aria-labelledby="pagar-title"
+              >
+                <div>
+                  <h3 id="pagar-title">Pagamento de Contas</h3>
+                  <p>
+                    Conta de luz, água, telefone, boletos bancários, GPS, Guias,
+                    IPTU entre outros — aceitamos todas as principais bandeiras.
+                    Sem filas longas.<br /><strong>Novidade!!</strong>
+                    <br />Você pode parcelar suas contas em até 06 vezes (apenas
+                    a cobrança de taxa de conveniência de 3,05%). <br />
+                    Juros cobrado pela bandeira do cartão.
+                  </p>
+                </div>
+              </article>
+
+              <!-- Apostas Caixa -->
+              <article
+                class="service"
+                role="listitem"
+                aria-labelledby="apostas-title"
+              >
+                <div>
+                  <h3 id="apostas-title">Apostas — Caixa</h3>
+                  <p>
+                    <strong>Mega-Sena</strong>, Lotofácil,
+                    <strong>Quina</strong>, Lotomania,
+                    <strong>Timemania</strong>, Dupla Sena,
+                    <strong>Loteria Federal</strong>, Loteca,
+                    <strong>Dia de Sorte</strong>, Super Sete,
+                    <strong>+Milionária</strong>. Emita seu bilhete com
+                    assistência e segurança e receba orientações sobre jogos e
+                    prêmios.<br />Aposte em nossos Bolões!!
+                  </p>
+                </div>
+                <div style="margin-top: 24px">
+                  <a
+                    class="btn btn-primary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.loteriasonline.caixa.gov.br/silce-web/#/bolao-caixa/017858"
+                    >Aposte</a
+                  >
+                </div>
+              </article>
+
+              <!-- Bolsa Família / Auxílio -->
+              <article
+                class="service"
+                role="listitem"
+                aria-labelledby="bolsa-title"
+              >
+                <div>
+                  <h3 id="bolsa-title">Serviços Bolsa Família / Auxílio</h3>
+                  <p>
+                    Consulta de benefícios, emissão de comprovantes e
+                    orientações para saque — atendimento humanizado e seguro.
+                  </p>
+                </div>
+              </article>
+
+              <article
+                class="service"
+                role="listitem"
+                aria-labelledby="seguro-title"
+              >
+                <div>
+                  <h3 id="bolsa-title">Seguros</h3>
+                  <p>
+                    Seguro Amparo, Seguro Bem Estar, Consórcio de automóveis,
+                    caminhões e imóveis. Tudo sem burocracia, venha ver a
+                    facilidade de contratar na Lotérica Mel
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <aside style="width: 320px; flex-shrink: 0">
+            <div class="map" aria-label="Informações de contato">
+              <strong>Localização</strong>
+              <div>
+                Avenida Eduardo Prado, 1954 — Cavalhada<br />Porto Alegre — RS
+              </div>
+              <div style="margin-top: 8px">
+                <strong>WhatsApp</strong><br />+55 (51) 9 9395-2676
+              </div>
+              <div style="margin-top: 8px; color: var(--muted)">
+                Horário de atendimento: <br />Segunda à Sexta 09:00 as 18:00
+              </div>
+              <div style="margin-top: 8px; color: var(--muted)">
+                Horário de atendimento: <br />Sábados 09:00 as 16:00
+              </div>
+              <div style="margin-top: 12px">
+                <button class="btn btn-primary" id="btn-whatsapp">
+                  Nos chame no WhatsApp!
+                </button>
+              </div>
+            </div>
+          </aside>
+        </div>
+        <footer>
+          © <span id="ano"></span> JM&MD Loterias LTDA — Todos os direitos
+          reservados
+        </footer>
+      </div>
+    </div>
+
+    <!-- Modal template -->
+    <div
+      class="modal"
+      id="modal"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+    ></div>
+
+    <script>
+      // Fill year
+      document.getElementById("ano").textContent = new Date().getFullYear();
+
+      // Open WhatsApp (placeholder link) — replace with business link
+      document.getElementById("btn-whatsapp").addEventListener("click", () => {
+        window.open(
+          "https://wa.me/5551993952676?text=Ol%C3%A1!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es.",
+          "_blank"
+        );
+      });
+
+      // Modal logic
+      const modal = document.getElementById("modal");
+      const modalTitle = document.getElementById("modal-title");
+      const modalDesc = document.getElementById("modal-desc");
+      const serviceInput = document.getElementById("service");
+
+      function openModal(service) {
+        modal.classList.add("open");
+        modal.setAttribute("aria-hidden", "false");
+        modalTitle.textContent = service;
+        modalDesc.textContent =
+          "Preencha os dados abaixo para solicitar: " + service;
+        serviceInput.value = service;
+        document.getElementById("f-name").focus();
+      }
+
+      function closeModal() {
+        modal.classList.remove("open");
+        modal.setAttribute("aria-hidden", "true");
+      }
+
+      document
+        .getElementById("close-modal")
+        .addEventListener("click", closeModal);
+      document.getElementById("cancel").addEventListener("click", closeModal);
+
+      // Attachors to service buttons
+      document.querySelectorAll('[data-action="open-form"]').forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          openModal(btn.dataset.service);
+        });
+      });
+
+      // How buttons show quick alert (could be richer)
+      document.querySelectorAll('[data-action="how"]').forEach((btn) => {
+        btn.addEventListener("click", () => {
+          alert(
+            btn.dataset.service +
+              "\n\nAbra uma solicitação ou pergunte no WhatsApp para mais detalhes."
+          );
+        });
+      });
+
+      // Send form — placeholder behavior: just close and show a toast
+      document.getElementById("send").addEventListener("click", () => {
+        const name = document.getElementById("f-name").value.trim();
+        const phone = document.getElementById("f-phone").value.trim();
+        if (!name || !phone) {
+          alert("Preencha nome e telefone para enviar.");
+          return;
+        }
+        closeModal();
+        alert(
+          "Solicitação enviada! Em breve retornaremos pelo telefone/WhatsApp informado."
+        );
+      });
+
+      // Simple placeholders for map buttons
+      document.getElementById("btn-maps").addEventListener("click", () => {
+        window.open("https://www.google.com/maps", "_blank");
+      });
+      document
+        .getElementById("btn-directions")
+        .addEventListener("click", () => {
+          window.open(
+            "https://www.google.com/maps/dir//Rua+Eduardo+Prado+1954",
+            "_blank"
+          );
+        });
+
+      // Quick request button
+      document.getElementById("btn-request").addEventListener("click", () => {
+        const n = document.getElementById("nome").value.trim();
+        const t = document.getElementById("tel").value.trim();
+        if (!n || !t) {
+          alert("Preencha nome e telefone.");
+          return;
+        }
+        alert("Solicitação recebida. Entraremos em contato por WhatsApp.");
+      });
+
+      // Accessibility: close modal with ESC
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeModal();
+      });
+    </script>
+  </body>
 </html>
